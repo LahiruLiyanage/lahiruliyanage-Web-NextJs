@@ -1,12 +1,20 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
-  return (
-    <>
-      <h1 className="p-2 text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  );
-}
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import Navbar from '@/components/Navbar';
+
+const Home: React.FC = () => {
+    return (
+        <div>
+            <Navbar />
+            <main>
+
+            </main>
+        </div>
+    );
+};
+
+export default Home;
