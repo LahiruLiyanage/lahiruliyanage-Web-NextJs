@@ -7,10 +7,11 @@ import { motion } from 'framer-motion';
 import {
     Github,
     Linkedin,
-    Mail,
-    Code,
+    Instagram,
+    LayoutTemplate,
     Server,
     Layers,
+    Building2,
     PenTool
 } from 'lucide-react';
 
@@ -19,25 +20,25 @@ export default function Home() {
         {
             icon: <Layers className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
             title: 'Full Stack Solutions',
-            description: 'End-to-end web application development with integrated architecture.',
+            description: 'End-to-end web development, integrating front-end, back-end, and databases for seamless, scalable applications.',
             mobileVisible: true
         },
         {
-            icon: <Layers className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
+            icon: <Building2 className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
             title: 'Architectural Design',
             description: 'Creating innovative building designs and architectural plans for residential and commercial spaces.',
             mobileVisible: true
         },
         {
-            icon: <Code className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
+            icon: <LayoutTemplate className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
             title: 'Frontend Development',
-            description: 'Creating responsive and interactive web interfaces with modern frameworks and tools.',
+            description: 'Designing dynamic and user-friendly web interfaces using modern frameworks, ensuring responsiveness and seamless user experiences.',
             mobileVisible: false
         },
         {
             icon: <Server className="w-6 h-6 md:w-7 md:h-7 text-sky-600" />,
             title: 'Backend Development',
-            description: 'Building robust, scalable server-side applications and RESTful APIs.',
+            description: 'Developing secure, scalable server-side applications and RESTful APIs to handle business logic, data management, and client-server communication.',
             mobileVisible: false
         }
     ];
@@ -45,7 +46,7 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <div className="container mx-auto max-w-5xl 2xl:max-w-6xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
+            <div className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24">
                 <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:gap-16 items-center justify-center">
                     {/* Text Content - Mobile: First, Desktop: Second */}
                     <motion.div
@@ -105,11 +106,11 @@ export default function Home() {
                                     <Linkedin className="w-6 h-6 md:w-7 md:h-7" />
                                 </a>
                                 <a
-                                    href="mailto:lhlahiru95@gmail.com"
+                                    href="https://www.instagram.com/lhliyanage/"
                                     className="text-gray-600 hover:text-sky-600 transition-colors duration-300"
-                                    aria-label="Email Contact"
+                                    aria-label="Instagram Profile"
                                 >
-                                    <Mail className="w-6 h-6 md:w-7 md:h-7" />
+                                    <Instagram className="w-6 h-6 md:w-7 md:h-7" />
                                 </a>
                             </div>
                         </div>
@@ -143,7 +144,7 @@ export default function Home() {
 
             {/* Professional Skills Section */}
             <div className="bg-white py-12 md:py-20 w-full shadow-inner">
-                <div className="container mx-auto max-w-5xl 2xl:max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10 md:mb-16">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
                             Professional Expertise
@@ -154,7 +155,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl 2xl:max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl mx-auto">
                         {professionalSkills.map((skill, index) => (
                             <motion.div
                                 key={index}

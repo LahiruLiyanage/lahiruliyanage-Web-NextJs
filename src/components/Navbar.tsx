@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
         <nav className={`sticky top-0 z-50 transition-all duration-300 ${
             scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 shadow-sm py-3'
         }`}>
-            <div className="container mx-auto max-w-5xl 2xl:max-w-6xl px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
