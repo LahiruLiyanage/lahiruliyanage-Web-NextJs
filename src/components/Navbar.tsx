@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
 
     // Close mobile menu when route changes or on window resize
@@ -23,6 +24,16 @@ const Navbar: React.FC = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    // Detect scroll for navbar styling
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // Prevent scrolling when mobile menu is open
     useEffect(() => {
         if (isOpen) {
@@ -35,28 +46,30 @@ const Navbar: React.FC = () => {
         };
     }, [isOpen]);
 
+    // Removed 'Contact' from navigation items since we have a dedicated 'Get in Touch' button
     const navItems: NavigationItem[] = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        { href: '/projects', label: 'Projects' },
-        { href: '/contact', label: 'Contact' }
+        { href: '/projects', label: 'Projects' }
     ];
 
     return (
-        <nav className="bg-white shadow-sm sticky top-0 z-50">
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+            scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 shadow-sm py-3'
+        }`}>
+            <div className="container mx-auto max-w-5xl 2xl:max-w-6xl px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Link href="/" className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-600">
+                    <Link href="/" className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-600 flex items-center">
                         Lahiru Liyanage<span className="text-yellow-500 dot font-bold">.</span>
                     </Link>
                 </motion.div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
+                <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
                     {navItems.map((item, index) => {
                         const isActive = pathname === item.href;
                         return (
@@ -68,17 +81,32 @@ const Navbar: React.FC = () => {
                             >
                                 <Link
                                     href={item.href}
-                                    className={`px-3 py-2 rounded-md text-sm lg:text-base transition duration-300 ${
+                                    className={`px-3 py-2 mx-1 rounded-md text-sm lg:text-base font-medium transition-all duration-300 relative group ${
                                         isActive
-                                            ? 'text-sky-600 font-medium border-b-2 border-sky-600'
-                                            : 'text-gray-700 hover:text-sky-600 hover:border-b-2 hover:border-sky-300'
+                                            ? 'text-sky-600'
+                                            : 'text-gray-700 hover:text-sky-600'
                                     }`}
                                 >
                                     {item.label}
+                                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-sky-600 transform transition-transform duration-300 ${
+                                        isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                                    }`}></span>
                                 </Link>
                             </motion.div>
                         );
                     })}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
+                        <Link
+                            href="/contact"
+                            className="ml-4 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm lg:text-base transition-all duration-300 shadow-sm hover:shadow-md"
+                        >
+                            Get in Touch
+                        </Link>
+                    </motion.div>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -88,7 +116,7 @@ const Navbar: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                         onClick={() => setIsOpen(!isOpen)}
-                        className="p-2 rounded-full hover:bg-gray-100 focus:outline-none transition-colors"
+                        className="p-2 rounded-md hover:bg-gray-100 focus:outline-none transition-colors"
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -118,10 +146,10 @@ const Navbar: React.FC = () => {
                                     >
                                         <Link
                                             href={item.href}
-                                            className={`flex items-center justify-between px-4 py-4 rounded-lg my-2 ${
+                                            className={`flex items-center px-4 py-4 rounded-lg my-2 transition-all duration-300 ${
                                                 isActive
                                                     ? 'bg-sky-50 text-sky-600 font-medium border-l-4 border-sky-600'
-                                                    : 'text-gray-700 hover:bg-gray-50'
+                                                    : 'text-gray-700 hover:bg-gray-50 hover:border-l-4 hover:border-sky-300'
                                             }`}
                                             onClick={() => setIsOpen(false)}
                                         >
@@ -130,6 +158,21 @@ const Navbar: React.FC = () => {
                                     </motion.div>
                                 );
                             })}
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4 }}
+                                className="mt-4"
+                            >
+                                <Link
+                                    href="/contact"
+                                    className="flex items-center justify-center w-full bg-sky-600 text-white py-3 rounded-lg my-4"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <span className="text-lg">Get in Touch</span>
+                                </Link>
+                            </motion.div>
                         </div>
 
                         {/* Social links or additional content for mobile menu */}
