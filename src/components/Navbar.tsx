@@ -70,14 +70,11 @@ const Navbar: React.FC = () => {
                                     href={item.href}
                                     className={`px-3 py-2 rounded-md text-sm lg:text-base transition duration-300 ${
                                         isActive
-                                            ? 'text-sky-600 font-medium'
-                                            : 'text-gray-700 hover:text-sky-600'
+                                            ? 'text-sky-600 font-medium border-b-2 border-sky-600'
+                                            : 'text-gray-700 hover:text-sky-600 hover:border-b-2 hover:border-sky-300'
                                     }`}
                                 >
                                     {item.label}
-                                    {isActive && (
-                                        <div className="h-0.5 bg-sky-600 mt-1 rounded-full" />
-                                    )}
                                 </Link>
                             </motion.div>
                         );
@@ -123,15 +120,12 @@ const Navbar: React.FC = () => {
                                             href={item.href}
                                             className={`flex items-center justify-between px-4 py-4 rounded-lg my-2 ${
                                                 isActive
-                                                    ? 'bg-sky-50 text-sky-600 font-medium'
+                                                    ? 'bg-sky-50 text-sky-600 font-medium border-l-4 border-sky-600'
                                                     : 'text-gray-700 hover:bg-gray-50'
                                             }`}
                                             onClick={() => setIsOpen(false)}
                                         >
                                             <span className="text-lg">{item.label}</span>
-                                            {isActive && (
-                                                <div className="w-2 h-2 rounded-full bg-sky-600" />
-                                            )}
                                         </Link>
                                     </motion.div>
                                 );
