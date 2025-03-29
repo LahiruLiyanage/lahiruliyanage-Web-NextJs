@@ -43,44 +43,59 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="bg-white shadow-md sticky top-0 z-50">
-            <div className="container mx-auto px-4 sm:px-6 md:px-10 py-3 flex justify-between items-center max-w-screen-2xl">
-                <Link href="/" className="text-xl sm:text-2xl font-bold text-primary text-sky-600">
-                    Lahiru Liyanage<span className="text-yellow-500 font-bold">.</span>
-                </Link>
+        <nav className="bg-white shadow-sm sticky top-0 z-50">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Link href="/" className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-600">
+                        Lahiru Liyanage<span className="text-yellow-500 dot font-bold">.</span>
+                    </Link>
+                </motion.div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center space-x-1 lg:space-x-6">
-                    {navItems.map((item) => {
+                <div className="hidden md:flex items-center space-x-2 lg:space-x-6">
+                    {navItems.map((item, index) => {
                         const isActive = pathname === item.href;
                         return (
-                            <Link
+                            <motion.div
                                 key={item.href}
-                                href={item.href}
-                                className={`px-3 py-2 rounded-md text-sm lg:text-base transition duration-300 ${
-                                    isActive
-                                        ? 'text-sky-600 font-medium bg-sky-50'
-                                        : 'text-gray-700 hover:text-sky-600 hover:bg-gray-50'
-                                }`}
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                {item.label}
-                                {isActive && (
-                                    <div className="h-0.5 bg-sky-600 mt-1 rounded-full" />
-                                )}
-                            </Link>
+                                <Link
+                                    href={item.href}
+                                    className={`px-3 py-2 rounded-md text-sm lg:text-base transition duration-300 ${
+                                        isActive
+                                            ? 'text-sky-600 font-medium'
+                                            : 'text-gray-700 hover:text-sky-600'
+                                    }`}
+                                >
+                                    {item.label}
+                                    {isActive && (
+                                        <div className="h-0.5 bg-sky-600 mt-1 rounded-full" />
+                                    )}
+                                </Link>
+                            </motion.div>
                         );
                     })}
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
-                    <button
+                    <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
                         onClick={() => setIsOpen(!isOpen)}
                         className="p-2 rounded-full hover:bg-gray-100 focus:outline-none transition-colors"
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    </motion.button>
                 </div>
             </div>
 
@@ -95,14 +110,14 @@ const Navbar: React.FC = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <div className="px-4">
-                            {navItems.map((item) => {
+                            {navItems.map((item, index) => {
                                 const isActive = pathname === item.href;
                                 return (
                                     <motion.div
                                         key={item.href}
                                         initial={{ x: -10, opacity: 0 }}
                                         animate={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.2, delay: navItems.indexOf(item) * 0.1 }}
+                                        transition={{ duration: 0.3, delay: index * 0.1 }}
                                     >
                                         <Link
                                             href={item.href}

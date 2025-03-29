@@ -8,7 +8,6 @@ import {
     Github,
     Linkedin,
     Mail,
-    Download,
     Code,
     Server,
     Layers
@@ -34,45 +33,45 @@ export default function Home() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 px-4 sm:px-6 md:px-10">
+        <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <div className="container mx-auto max-w-screen-2xl py-8 md:py-16">
-                <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                    {/* Profile Image - Mobile: First, Desktop: Second */}
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                    {/* Profile Image - Second on mobile, Second on desktop */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex justify-center order-1 md:order-2"
+                        className="flex justify-center flex-1"
                     >
                         <div className="relative">
                             <Image
                                 src="/images/lahiruliyanage.png"
                                 alt="Lahiru Liyanage"
-                                width={800}
-                                height={1000}
-                                className="rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl object-cover w-64 h-80 sm:w-72 sm:h-90 md:w-80 md:h-100 lg:w-96 lg:h-120"
+                                width={400}
+                                height={500}
+                                className="rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl object-cover w-64 h-80 sm:w-72 sm:h-90 md:w-80 md:h-96 lg:w-96 lg:h-120"
                                 priority
                             />
-                            <div className="absolute bottom-0 right-0 bg-primary text-white p-2 md:p-3 rounded-full shadow-lg">
-                                <Code className="w-4 h-4 md:w-6 md:h-6" />
-                            </div>
+                            {/*<div className="absolute bottom-0 right-0 bg-sky-600 text-white p-2 md:p-3 rounded-full shadow-lg">*/}
+                            {/*    <Code className="w-4 h-4 md:w-6 md:h-6" />*/}
+                            {/*</div>*/}
                         </div>
                     </motion.div>
 
-                    {/* Text Content - Mobile: Second, Desktop: First */}
+                    {/* Text Content - First on mobile, First on desktop */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="order-2 md:order-1 text-center md:text-left"
+                        className="flex-1 text-center md:text-left"
                     >
                         <div className="max-w-xl mx-auto md:mx-0">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl">Hello, I&#39;m</h2>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                                 Lahiru Liyanage
                             </h1>
-                            <h2 className="text-2xl md:text-2xl lg:text-3xl text-primary font-bold text-sky-600 pb-2 md:pb-4">
+                            <h2 className="text-2xl md:text-2xl lg:text-3xl text-sky-600 font-bold pb-2 md:pb-4">
                                 Full Stack Developer
                             </h2>
                             <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-lg">
@@ -81,11 +80,11 @@ export default function Home() {
                                 with creative problem-solving to deliver exceptional digital solutions.
                             </p>
 
-                            {/* Social and Action Links */}
+                            {/* Action Links */}
                             <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 md:gap-4 pt-4">
                                 <Link
                                     href="/projects"
-                                    className="bg-primary text-white px-4 md:px-6 py-2 rounded-full bg-sky-600 hover:bg-sky-700 transition flex items-center gap-2 text-sm md:text-base"
+                                    className="bg-sky-600 text-white px-4 md:px-6 py-2 rounded-full hover:bg-sky-700 transition flex items-center gap-2 text-sm md:text-base"
                                 >
                                     View My Work
                                 </Link>
@@ -102,32 +101,34 @@ export default function Home() {
                                 <a
                                     href="https://github.com/LahiruLiyanage"
                                     target="_blank"
-                                    className="text-gray-600 hover:text-primary transition"
+                                    className="text-gray-600 hover:text-sky-600 transition"
                                 >
                                     <Github className="w-5 h-5 md:w-6 md:h-6" />
                                 </a>
                                 <a
                                     href="https://linkedin.com/in/lahiruliyanage"
                                     target="_blank"
-                                    className="text-gray-600 hover:text-primary transition"
+                                    className="text-gray-600 hover:text-sky-600 transition"
                                 >
                                     <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
                                 </a>
                                 <a
                                     href="mailto:lhlahiru95@gmail.com"
-                                    className="text-gray-600 hover:text-primary transition"
+                                    className="text-gray-600 hover:text-sky-600 transition"
                                 >
                                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                                 </a>
                             </div>
                         </div>
                     </motion.div>
+
+
                 </div>
             </div>
 
             {/* Professional Skills Section */}
-            <div className="bg-white py-8 md:py-16 -mx-4 sm:-mx-6 md:-mx-10 px-4 sm:px-6 md:px-10">
-                <div className="container mx-auto max-w-screen-2xl">
+            <div className="bg-white py-8 md:py-16 w-full">
+                <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-8 md:mb-12">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 md:mb-4">
                             Professional Expertise
@@ -137,7 +138,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-screen-xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                         {professionalSkills.map((skill, index) => (
                             <motion.div
                                 key={index}
@@ -152,7 +153,7 @@ export default function Home() {
                                 <h4 className="text-lg md:text-xl lg:text-2xl font-semibold mb-2 md:mb-3 text-gray-800">
                                     {skill.title}
                                 </h4>
-                                <p className="text-gray-600 text-sm md:text-base lg:text-lg">
+                                <p className="text-gray-600 text-sm md:text-base">
                                     {skill.description}
                                 </p>
                             </motion.div>
