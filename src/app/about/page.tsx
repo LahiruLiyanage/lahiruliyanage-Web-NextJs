@@ -6,16 +6,6 @@ import Link from 'next/link';
 import { Code, CodeXml, Building, Briefcase, GraduationCap, FileCode, Terminal } from 'lucide-react';
 
 export default function About() {
-    const skills = [
-        { name: 'React.js', category: 'frontend' },
-        { name: 'Angular', category: 'frontend' },
-        { name: 'Node.js', category: 'backend' },
-        { name: 'Spring Boot', category: 'backend' },
-        { name: 'TypeScript', category: 'language' },
-        { name: 'Java', category: 'language' },
-        { name: 'MongoDB', category: 'database' },
-        { name: 'PostgreSQL', category: 'database' }
-    ];
 
     const experiences = [
         {
@@ -138,8 +128,10 @@ export default function About() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2 flex justify-center">
-                            <div className="relative">
+                        <div className="w-full md:w-1/2">
+
+                            {/* Career Transition Card */}
+                            <div className="relative mb-8">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-blue-600 rounded-lg blur opacity-30"></div>
                                 <div className="relative bg-white p-6 rounded-lg shadow-xl">
                                     <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -166,85 +158,119 @@ export default function About() {
                                     </div>
                                 </div>
                             </div>
+
+
+                            {/* Technical Skills Section */}
+                            <div>
+                                <div className="flex items-center gap-2 mb-4">
+                                    <CodeXml className="text-sky-600" size={24} />
+                                    <h2 className="text-2xl font-semibold text-gray-800">Technical Skills</h2>
+                                </div>
+                                <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                                    <p className="text-gray-700 mb-6">I work with a wide range of technologies to build robust and scalable applications.</p>
+                                    <div className="flex flex-wrap gap-4 justify-center">
+                                        <a href="https://git-scm.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.java.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original-wordmark.svg" alt="java" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://aws.amazon.com/amplify/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://docs.amplify.aws/assets/logo-dark.svg" alt="amplify" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://sass-lang.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://getbootstrap.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.docker.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://expressjs.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.python.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original-wordmark.svg" alt="python" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://firebase.google.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://spring.io" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" alt="spring" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.figma.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.mysql.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://vitejs.dev/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://vitejs.dev/logo.svg" alt="vite" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://mui.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" alt="material ui" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.postman.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://webpack.js.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg" alt="webpack" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://angular.io" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/angular/angular-icon.svg" alt="angular" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://nextjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://tomcat.apache.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/apache_tomcat/apache_tomcat-icon.svg" alt="apache tomcat" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://maven.apache.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/maven/maven-original-wordmark.svg" alt="maven" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://gradle.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/gradle/gradle-icon.svg" alt="gradle" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.postgresql.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://jquery.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original-wordmark.svg" alt="jquery" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://reactjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://redux.js.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
+                                        </a>
+                                        <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
-
-                {/* Technical Skills Section with Icons */}
-                <motion.section variants={itemVariants} className="mb-16">
-                    <div className="flex items-center gap-2 mb-6">
-                        <CodeXml className="text-sky-600" size={24} />
-                        <h2 className="text-2xl font-semibold text-gray-800">Technical Skills</h2>
-                    </div>
-                    <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-                        <p className="text-gray-700 mb-8">I work with a wide range of technologies to build robust and scalable applications.</p>
-                        <div className="flex flex-wrap gap-4 justify-center">
-                            <a href="https://aws.amazon.com/amplify/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://docs.amplify.aws/assets/logo-dark.svg" alt="amplify" width="40" height="40"/>
-                            </a>
-                            <a href="https://babeljs.io/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/>
-                            </a>
-                            <a href="https://getbootstrap.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.chartjs.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.docker.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/>
-                            </a>
-                            <a href="https://expressjs.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/>
-                            </a>
-                            <a href="https://firebase.google.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.framer.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.gatsbyjs.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/gatsbyjs/gatsbyjs-icon.svg" alt="gatsby" width="40" height="40"/>
-                            </a>
-                            <a href="https://git-scm.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
-                            </a>
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
-                            </a>
-                            <a href="https://nextjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>
-                            </a>
-                            <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.postgresql.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
-                            </a>
-                            <a href="https://reactjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
-                            </a>
-                            <a href="https://redux.js.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/>
-                            </a>
-                            <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
-                            </a>
-                            <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
-                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
-                            </a>
-                        </div>
-                    </div>
-                </motion.section>
 
                 {/* Experience Section */}
                 <motion.div variants={itemVariants} className="mb-16">
@@ -290,41 +316,6 @@ export default function About() {
 
                 {/* Featured Projects Section */}
                 <motion.section variants={itemVariants}>
-                    <div className="flex items-center gap-2 mb-6">
-                        <FileCode className="text-sky-600" size={24} />
-                        <h2 className="text-2xl font-semibold text-gray-800">Featured Projects</h2>
-                    </div>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {projects.map((project, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                                whileHover={{ y: -8 }}
-                            >
-                                <div className="h-2 bg-gradient-to-r from-sky-500 to-blue-600"></div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2">{project.name}</h3>
-                                    <p className="text-gray-600 mb-4">{project.description}</p>
-                                    <div className="flex flex-wrap gap-2 mb-6">
-                                        {project.tags.map((tag, tagIndex) => (
-                                            <span key={tagIndex} className="text-xs px-2 py-1 bg-sky-100 text-sky-800 rounded-full">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sky-600 hover:text-sky-800 font-medium flex items-center gap-1"
-                                    >
-                                        View Project <span>→</span>
-                                    </a>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-
                     <div className="mt-8 text-center">
                         <Link href="/projects" className="text-sky-600 hover:text-sky-800 font-medium flex items-center gap-2 justify-center">
                             View All Projects <span>→</span>
