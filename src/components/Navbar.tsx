@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
     // Removed 'Contact' from navigation items since we have a dedicated 'Get in Touch' button
     const navItems: NavigationItem[] = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
+        { href: '/about', label: 'About Me' },
         { href: '/projects', label: 'Projects' }
     ];
 

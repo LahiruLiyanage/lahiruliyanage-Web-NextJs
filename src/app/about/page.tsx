@@ -3,18 +3,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Code, Building, Briefcase, GraduationCap, FileCode, Terminal } from 'lucide-react';
+import { Code, CodeXml, Building, Briefcase, GraduationCap, FileCode, Terminal } from 'lucide-react';
 
 export default function About() {
     const skills = [
-        { name: 'React.js', level: 90, category: 'frontend' },
-        { name: 'Angular', level: 85, category: 'frontend' },
-        { name: 'Node.js', level: 88, category: 'backend' },
-        { name: 'Spring Boot', level: 82, category: 'backend' },
-        { name: 'TypeScript', level: 85, category: 'language' },
-        { name: 'Java', level: 80, category: 'language' },
-        { name: 'MongoDB', level: 75, category: 'database' },
-        { name: 'PostgreSQL', level: 78, category: 'database' }
+        { name: 'React.js', category: 'frontend' },
+        { name: 'Angular', category: 'frontend' },
+        { name: 'Node.js', category: 'backend' },
+        { name: 'Spring Boot', category: 'backend' },
+        { name: 'TypeScript', category: 'language' },
+        { name: 'Java', category: 'language' },
+        { name: 'MongoDB', category: 'database' },
+        { name: 'PostgreSQL', category: 'database' }
     ];
 
     const experiences = [
@@ -22,31 +22,42 @@ export default function About() {
             company: 'IJSE',
             position: 'Associate Software Developer',
             duration: '2024 - Present',
-            description: 'Developing modern web applications and contributing to enterprise software solutions.'
+            description: 'Designing, developing, and maintaining modern web applications while contributing to the architecture and scalability of enterprise software solutions. Collaborating with teams to implement innovative features, optimize performance, and ensure seamless user experiences using the latest technologies.'
         },
         {
             company: 'OREL Corporation',
             position: 'Project Architect',
             duration: '2021 - 2024',
-            description: 'Led architectural design projects and collaborated with engineering teams to create innovative structural solutions.'
+            description: 'Designed and managed architectural solutions for mid-to-large-scale projects, overseeing building services and collaborating closely with stakeholders to deliver innovative, efficient, and scalable solutions.'
+        },
+        {
+            company: 'C+ Design',
+            position: 'Architectural Designer',
+            duration: '2020 - 2021',
+            description: 'Designed and led architecture for small to mid-level projects, ensuring scalability, efficiency, and maintainability while collaborating with teams to implement best practices.'
         }
     ];
 
     const education = [
         {
+            degree: 'CMJD Professional Certificate',
+            institution: 'IJSE - Institute of Software Engineering',
+            duration: '2024'
+        },
+        {
+            degree: 'Certificate in Jira Training',
+            institution: 'ICITB - Imperial College Of Information Technology & Business',
+            duration: '2024'
+        },
+        {
             degree: 'MSc in Project Management',
             institution: 'Solent University, Southampton, UK',
-            duration: '2020 - 2021'
+            duration: '2022 - 2023'
         },
         {
             degree: 'Bachelor\'s Degree',
             institution: 'University of Moratuwa, Sri Lanka',
-            duration: '2016 - 2020'
-        },
-        {
-            degree: 'CMJD Professional Certificate',
-            institution: 'IJSE',
-            duration: '2023'
+            duration: '2015 - 2020'
         }
     ];
 
@@ -136,17 +147,21 @@ export default function About() {
                                         Career Transition
                                     </h3>
                                     <div className="flex items-start gap-2 mb-4">
-                                        <Building className="text-gray-600 mt-1" size={18} />
-                                        <div>
-                                            <h4 className="font-medium">Then: Project Architect</h4>
-                                            <p className="text-sm text-gray-600">Designing physical structures</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-2">
                                         <Briefcase className="text-sky-600 mt-1" size={18} />
                                         <div>
                                             <h4 className="font-medium">Now: Full-Stack Developer</h4>
-                                            <p className="text-sm text-gray-600">Building digital experiences</p>
+                                            <p className="text-sm text-gray-600">
+                                                Building digital experiences
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-2 ">
+                                        <Building className="text-gray-600 mt-1" size={18} />
+                                        <div>
+                                            <h4 className="font-medium">Then: Project Architect</h4>
+                                            <p className="text-sm text-gray-600">
+                                                Designing physical structures
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -155,31 +170,104 @@ export default function About() {
                     </div>
                 </motion.div>
 
-                {/* Experience and Education Section */}
-                <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-8 mb-16">
-                    {/* Experience Column */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-6">
-                            <Briefcase className="text-sky-600" size={24} />
-                            <h2 className="text-2xl font-semibold text-gray-800">Experience</h2>
-                        </div>
-                        <div className="space-y-6">
-                            {experiences.map((exp, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="bg-white shadow-md rounded-lg p-6 border-l-4 border-sky-500 hover:shadow-lg transition-shadow duration-300"
-                                    whileHover={{ y: -5 }}
-                                >
-                                    <h3 className="text-xl font-bold text-gray-800">{exp.position}</h3>
-                                    <p className="text-sky-600 mb-2">{exp.company} | {exp.duration}</p>
-                                    <p className="text-gray-600">{exp.description}</p>
-                                </motion.div>
-                            ))}
+                {/* Technical Skills Section with Icons */}
+                <motion.section variants={itemVariants} className="mb-16">
+                    <div className="flex items-center gap-2 mb-6">
+                        <CodeXml className="text-sky-600" size={24} />
+                        <h2 className="text-2xl font-semibold text-gray-800">Technical Skills</h2>
+                    </div>
+                    <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+                        <p className="text-gray-700 mb-8">I work with a wide range of technologies to build robust and scalable applications.</p>
+                        <div className="flex flex-wrap gap-4 justify-center">
+                            <a href="https://aws.amazon.com/amplify/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://docs.amplify.aws/assets/logo-dark.svg" alt="amplify" width="40" height="40"/>
+                            </a>
+                            <a href="https://babeljs.io/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/>
+                            </a>
+                            <a href="https://getbootstrap.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.chartjs.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.chartjs.org/media/logo-title.svg" alt="chartjs" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.docker.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/>
+                            </a>
+                            <a href="https://expressjs.com" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/>
+                            </a>
+                            <a href="https://firebase.google.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.framer.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" alt="framer" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.gatsbyjs.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/gatsbyjs/gatsbyjs-icon.svg" alt="gatsby" width="40" height="40"/>
+                            </a>
+                            <a href="https://git-scm.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
+                            </a>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
+                            </a>
+                            <a href="https://nextjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/>
+                            </a>
+                            <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.postgresql.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/>
+                            </a>
+                            <a href="https://reactjs.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
+                            </a>
+                            <a href="https://redux.js.org" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/>
+                            </a>
+                            <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/>
+                            </a>
+                            <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer" className="transition-transform hover:scale-110">
+                                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+                            </a>
                         </div>
                     </div>
+                </motion.section>
 
-                    {/* Education Column */}
-                    <div>
+                {/* Experience Section */}
+                <motion.div variants={itemVariants} className="mb-16">
+                    <div className="flex items-center gap-2 mb-6">
+                        <Briefcase className="text-sky-600" size={24} />
+                        <h2 className="text-2xl font-semibold text-gray-800">Experience</h2>
+                    </div>
+                    <div className="space-y-6">
+                        {experiences.map((exp, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-white shadow-md rounded-lg p-6 border-l-4 border-sky-500 hover:shadow-lg transition-shadow duration-300"
+                                whileHover={{ y: -5 }}
+                            >
+                                <h3 className="text-xl font-bold text-gray-800">{exp.position}</h3>
+                                <p className="text-sky-600 mb-2">{exp.company} | {exp.duration}</p>
+                                <p className="text-gray-600">{exp.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Education Section (nested under Experience) */}
+                    <div className="mt-12">
                         <div className="flex items-center gap-2 mb-6">
                             <GraduationCap className="text-sky-600" size={24} />
                             <h2 className="text-2xl font-semibold text-gray-800">Education</h2>
@@ -199,41 +287,6 @@ export default function About() {
                         </div>
                     </div>
                 </motion.div>
-
-                {/* Skills Section */}
-                <motion.section variants={itemVariants} className="mb-16">
-                    <div className="flex items-center gap-2 mb-6">
-                        <Code className="text-sky-600" size={24} />
-                        <h2 className="text-2xl font-semibold text-gray-800">Technical Skills</h2>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {skills.map((skill, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
-                                whileHover={{ scale: 1.02 }}
-                            >
-                                <div className="flex justify-between mb-2">
-                                    <span className="font-semibold flex items-center gap-2">
-                                        {skill.name}
-                                        <span className="text-xs px-2 py-1 bg-gray-100 rounded-full text-gray-600">
-                                            {skill.category}
-                                        </span>
-                                    </span>
-                                    <span className="text-sky-600 font-medium">{skill.level}%</span>
-                                </div>
-                                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                                    <motion.div
-                                        className="bg-sky-600 h-2.5 rounded-full"
-                                        initial={{ width: 0 }}
-                                        animate={{ width: `${skill.level}%` }}
-                                        transition={{ duration: 1, delay: index * 0.1 }}
-                                    ></motion.div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.section>
 
                 {/* Featured Projects Section */}
                 <motion.section variants={itemVariants}>
