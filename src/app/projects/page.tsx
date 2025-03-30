@@ -64,7 +64,7 @@ export default function Projects() {
             id: 'azure-heights',
             title: 'Eco Sanctuary House',
             description: 'A cozy, sustainable home designed for comfort and relaxation. The space-efficient layout features natural ventilation, energy-efficient lighting, and eco-friendly materials. Large windows enhance natural light, creating a serene and livable retreat.',
-            image: '/images/projects/house1.png',
+            image: '/images/projects/house-design.jpg',
             tags: ['Residential', 'Sustainable Design', 'Livable Environment'],
             externalLink: null,
             featured: true,
@@ -76,7 +76,7 @@ export default function Projects() {
             id: 'emerald-office',
             title: 'InQube: Apparel Innovation Renovation Project',
             description: 'I contributed to the InQube Innovation Premises Renovation Project under Chartered Architect Mewan Jayasinghe, specializing in architectural visualization to enhance design presentations and decision-making. My work focused on transforming architectural concepts into detailed, realistic visual representations.',
-            image: '/images/projects/emerald-office.png',
+            image: '/images/projects/inqube.jpg',
             tags: ['Commercial', 'Green Building', 'Workplace Design', 'Interior Visualization'],
             externalLink: null,
             featured: true,
@@ -85,28 +85,28 @@ export default function Projects() {
             area: '5,200 sq.ft'
         },
         {
-            id: 'harmony-villa',
-            title: 'Harmony Villa',
-            description: 'Luxury residential villa integrating traditional Sri Lankan architectural elements with modern amenities and indoor-outdoor living spaces.',
-            image: '/images/projects/harmony-villa.png',
-            tags: ['Residential', 'Luxury', 'Cultural Integration'],
+            id: 'interior',
+            title: 'Luxury Hotel Interior',
+            description: 'I created a luxurious hotel space that combines elegance with eco-friendly principles. Using sustainable materials and energy-efficient systems, the design offers a sophisticated atmosphere. Natural elements like reclaimed wood and plants add a harmonious touch, ensuring both luxury and environmental responsibility.',
+            image: '/images/projects/lobby.jpg',
+            tags: ['Commercial', 'Luxury', 'Interior Design'],
             externalLink: null,
             featured: false,
-            location: 'Galle, Sri Lanka',
+            location: 'Kollupitiya, Sri Lanka',
             date: 'Mar 2022',
-            area: '450 sq.m'
+            area: '3,400 sq.ft'
         },
         {
-            id: 'urban-renewal',
-            title: 'Urban Renewal Center',
-            description: 'Adaptive reuse project transforming an abandoned warehouse into a community center with exhibition spaces, workshops, and recreational areas.',
-            image: '/images/projects/urban-renewal.png',
-            tags: ['Adaptive Reuse', 'Community', 'Urban Planning'],
+            id: 'landscape',
+            title: 'Landscape Design',
+            description: 'I created both landscape and interior spaces that blend with nature. Native plants and water-efficient systems were incorporated outdoors, while the interior features sustainable materials and energy-efficient solutions, creating a harmonious and eco-friendly environment.',
+            image: '/images/projects/landscape.jpg',
+            tags: ['Adaptive Reuse', 'Landscape', 'House Interior', 'Foreign Design'],
             externalLink: null,
             featured: false,
-            location: 'Negombo, Sri Lanka',
-            date: 'Nov 2021',
-            area: '3,200 sq.m'
+            location: 'Swords, Ireland',
+            date: 'Nov 2022',
+            area: '3,200 sq.ft'
         }
     ];
 
@@ -244,14 +244,13 @@ export default function Projects() {
                                                 <div className="absolute inset-0 bg-gradient-to-b from-sky-600/60 to-sky-800/80 flex items-center justify-center">
                                                     <Layers className="w-16 h-16 text-white/80" />
                                                 </div>
-                                                {/* Uncomment when you have actual images
                                                 <Image
                                                     src={project.image}
                                                     alt={project.title}
                                                     fill
                                                     className="object-cover"
                                                 />
-                                                */}
+
                                                 {project.featured && (
                                                     <div className="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                                                         <Star size={12} className="mr-1" />
@@ -340,14 +339,12 @@ export default function Projects() {
                                                 <div className="absolute inset-0 bg-gradient-to-b from-blue-600/60 to-blue-800/80 flex items-center justify-center">
                                                     <Building className="w-16 h-16 text-white/80" />
                                                 </div>
-                                                {/* Uncomment when you have actual images
                                                 <Image
                                                     src={project.image}
                                                     alt={project.title}
                                                     fill
                                                     className="object-cover"
                                                 />
-                                                */}
                                                 {project.featured && (
                                                     <div className="absolute top-3 right-3 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                                                         <Star size={12} className="mr-1" />
