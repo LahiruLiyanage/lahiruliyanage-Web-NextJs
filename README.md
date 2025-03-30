@@ -1,9 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lahiru Liyanage - Personal Portfolio
 
-## Getting Started
+This repository contains the source code for my personal portfolio website [lahiruliyanage.com](https://lahiruliyanage.com), where I showcase my skills, projects, and professional journey as a Full Stack Developer with an architectural background.
 
-First, run the development server:
+## Overview
 
+This portfolio is built using Next.js and TypeScript, embracing modern web development practices to create a responsive, accessible, and performant web experience. The site highlights my transition from architecture to software development and demonstrates my technical abilities through interactive components and clean design.
+
+## 🛠️ Technologies Used
+
+- **Next.js** - React framework with server-side rendering and routing
+- **TypeScript** - Strongly typed programming language that builds on JavaScript
+- **React** - JavaScript library for building user interfaces
+- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+- **Framer Motion** - Animation library for React
+- **Lucide React** - Beautiful & consistent icon set
+- **Vercel** - Platform for frontend frameworks and static sites
+
+## 🌟 Features
+
+- Responsive design that works seamlessly across all device sizes
+- Animated UI components using Framer Motion
+- Dark/light mode theming
+- Optimized images with Next.js Image component
+- SEO-friendly structure
+- Interactive project showcase
+- Contact form for potential clients or employers
+- Career transition narrative highlighting architectural background
+
+## 💻 Local Development
+
+### Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm or yarn or pnpm or bun
+
+### Setup
+
+1. Clone this repository:
+```bash
+git clone https://github.com/LahiruLiyanage/portfolio-nextjs.git
+cd portfolio-nextjs
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Start the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +64,76 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open your browser and navigate to `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
 
-## Learn More
+This will create a `.next` directory with all the optimized assets ready for deployment.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This site is deployed using Vercel. The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+├── app/                 # Next.js app directory containing routes
+│   ├── about/           # About page
+│   ├── contact/         # Contact page
+│   ├── projects/        # Projects page
+│   ├── layout.tsx       # Root layout component
+│   └── page.tsx         # Home page component
+├── components/          # Reusable React components
+├── public/              # Static assets (images, fonts, etc.)
+│   └── images/          # Image assets
+├── styles/              # Global styles and CSS modules
+├── lib/                 # Utility functions and shared logic
+├── types/               # TypeScript type definitions
+├── next.config.js       # Next.js configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+├── tsconfig.json        # TypeScript configuration
+├── package.json         # Project dependencies
+├── LICENSE
+└── README.md
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Features
+
+- **Responsive Hero Section**: Interactive introduction with animated elements
+- **Professional Skills Showcase**: Visual representation of technical abilities
+- **Career Transition Narrative**: Storytelling elements about my journey from architecture to development
+- **Project Portfolio**: Showcase of my best and most recent work
+- **Contact Form**: Easy way for visitors to get in touch
+
+## 📜 License
+
+This project is open-source, but proper attribution is required.
+
+- **Code License**: This project's source code is licensed under the [MIT License with Attribution](LICENSE).
+- **Content License**: The website's design, text, and images are licensed under the [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), requiring proper credit when reused.
+
+## 📩 Contact
+
+For any questions or feedback, feel free to reach out:
+
+- 📞 Mobile: [+94719607296](tel:+94719607296)
+- 📧 Email: [lhlahiru95@gmail.com](mailto:lhlahiru95@gmail.com)
+- 💼 LinkedIn: [LahiruLiyanage](https://www.linkedin.com/in/lahiruliyanage/)
+- 🖥️ GitHub: [@LahiruLiyanage](https://github.com/LahiruLiyanage)
+- 🌐 Website: [Lahiru Liyanage](https://lahiruliyanage.com)
+
+---
+
+© 2025 Lahiru Liyanage. All Rights Reserved.
