@@ -12,7 +12,9 @@ export default function About() {
             company: 'IJSE',
             position: 'Associate Software Developer',
             duration: '2024 - Present',
-            description: ''
+            description: 'As an Associate Software Developer, I design, develop, and maintain modern web applications while ensuring scalability and efficiency. I contribute to the architecture and optimization of enterprise software solutions, leveraging the latest technologies.\n' +
+                '\n' +
+                'My project management skills enable me to work efficiently, prioritize tasks, and collaborate effectively with cross-functional teams. I implement innovative features, enhance user experiences, and maintain clean, maintainable code. Committed to continuous learning, I stay updated with emerging technologies to build high-quality, future-ready solutions.'
         },
         {
             company: 'OREL Corporation',
