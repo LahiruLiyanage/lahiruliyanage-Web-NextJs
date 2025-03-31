@@ -53,27 +53,6 @@ export default function About() {
         }
     ];
 
-    const projects = [
-        {
-            name: 'ShadowCrypt',
-            description: 'File Encryption Tool',
-            tags: ['Java', 'JavaFX', 'Cryptography'],
-            link: 'https://github.com/LahiruLiyanage/ShadowCrypt'
-        },
-        {
-            name: 'NextCommerce',
-            description: 'Modern E-commerce Platform',
-            tags: ['Next.js', 'React', 'Tailwind'],
-            link: 'https://github.com/LahiruLiyanage/NextCommerce'
-        },
-        {
-            name: 'WeaveBrowse',
-            description: 'Custom Web Browser',
-            tags: ['JavaFX', 'HTTP Protocol'],
-            link: 'https://github.com/LahiruLiyanage/WeaveBrowse'
-        }
-    ];
-
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -188,7 +167,7 @@ export default function About() {
 
                                     {/* Quote/Mission Statement */}
                                     <div className="mt-5 p-3 bg-sky-50 rounded-md border-l-4 border-sky-500 italic text-sm text-gray-700">
-                                        "Bringing an architect's perspective to software development — creating digital structures with both form and function."
+                                        &#34;Bringing an architect&#39;s perspective to software development — creating digital structures with both form and function.&#34;
                                     </div>
 
                                     {/* Why I Switched */}
