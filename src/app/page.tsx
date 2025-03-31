@@ -16,9 +16,7 @@ import {
     PenTool,
     FileCode,
     Terminal,
-    Briefcase,
-    ChevronRight,
-    Mail
+    Briefcase
 } from 'lucide-react';
 
 export default function Home() {
@@ -69,20 +67,13 @@ export default function Home() {
         }
     ];
 
-    const footerLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'About Me', href: '/about' },
-        { name: 'Projects', href: '/projects' },
-        { name: 'Contact', href: '/contact' }
-    ];
-
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
-                className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 lg:py-24 flex-grow"
+                className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-6 md:py-10 lg:py-12 flex-grow"
             >
                 {/* Hero Section */}
                 <motion.div
@@ -247,74 +238,6 @@ export default function Home() {
                 </motion.div>
             </motion.div>
 
-            {/* Simple Footer */}
-            <footer className="bg-white border-t border-gray-200 mt-auto">
-                <div className="container mx-auto max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center">
-                        <div className="mb-6 md:mb-0">
-                            <Link href="/" className="text-xl font-bold text-sky-600 flex items-center">
-                                Lahiru Liyanage<span className="text-yellow-500 dot font-bold">.</span>
-                            </Link>
-                            <p className="text-gray-600 mt-2 text-sm">Full Stack Developer & Former Architect</p>
-                        </div>
-
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                            <div className="flex space-x-4">
-                                {footerLinks.map((link) => (
-                                    <Link
-                                        key={link.name}
-                                        href={link.href}
-                                        className="text-gray-600 hover:text-sky-600 text-sm flex items-center gap-1"
-                                    >
-                                        <ChevronRight size={14} />
-                                        {link.name}
-                                    </Link>
-                                ))}
-                            </div>
-
-                            <Link
-                                href="/contact"
-                                className="bg-sky-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-sky-700 flex items-center gap-2 transition-colors"
-                            >
-                                <Mail size={16} />
-                                Get in Touch
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-gray-100 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Lahiru Liyanage. All rights reserved.</p>
-
-                        <div className="flex space-x-4">
-                            <a
-                                href="https://github.com/LahiruLiyanage"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-500 hover:text-sky-600 transition-colors duration-300"
-                                aria-label="GitHub Profile"
-                            >
-                                <Github className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://linkedin.com/in/lahiruliyanage"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-500 hover:text-sky-600 transition-colors duration-300"
-                                aria-label="LinkedIn Profile"
-                            >
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://www.instagram.com/lhliyanage/"
-                                className="text-gray-500 hover:text-sky-600 transition-colors duration-300"
-                                aria-label="Instagram Profile"
-                            >
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }

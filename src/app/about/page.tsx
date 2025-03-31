@@ -12,7 +12,7 @@ export default function About() {
             company: 'IJSE',
             position: 'Associate Software Developer',
             duration: '2024 - Present',
-            description: 'Designing, developing, and maintaining modern web applications while contributing to the architecture and scalability of enterprise software solutions. Collaborating with teams to implement innovative features, optimize performance, and ensure seamless user experiences using the latest technologies.'
+            description: ''
         },
         {
             company: 'OREL Corporation',
