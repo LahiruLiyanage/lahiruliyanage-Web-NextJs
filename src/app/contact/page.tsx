@@ -85,7 +85,7 @@ export default function Contact() {
                     </h1>
                     <div className="h-1 w-24 bg-sky-500 mb-8 mx-auto"></div>
                     <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                        Have a project in mind or want to discuss potential opportunities? I'm always open to new ideas and collaborations.
+                        Have a project in mind or want to discuss potential opportunities? I&#39;m always open to new ideas and collaborations.
                     </p>
                 </motion.div>
 
@@ -160,7 +160,7 @@ export default function Contact() {
                         >
                             <h3 className="font-semibold text-gray-800 mb-2">Current Availability</h3>
                             <p className="text-gray-600 mb-4">
-                                I'm currently open to freelance projects and full-time opportunities.
+                                I&#39;m currently open to freelance projects and full-time opportunities.
                             </p>
                             <div className="flex items-center text-green-600">
                                 <div className="h-3 w-3 bg-green-500 rounded-full mr-2 relative">
@@ -185,7 +185,7 @@ export default function Contact() {
                                     <CheckCircle className="text-green-500" size={24} />
                                     <div>
                                         <h3 className="font-medium text-green-700">Message Sent Successfully!</h3>
-                                        <p className="text-green-600">Thank you for reaching out. I'll get back to you soon.</p>
+                                        <p className="text-green-600">Thank you for reaching out. I&#39;ll get back to you soon.</p>
                                     </div>
                                 </motion.div>
                             ) : (
@@ -313,7 +313,7 @@ export default function Contact() {
                 >
                     <h2 className="text-2xl font-semibold mb-4 text-gray-800">Ready to Work Together?</h2>
                     <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                        Let's create something amazing together. Whether you need a custom web application, a dynamic website, or technical consultation, I'm here to help bring your vision to life.
+                        Let&#39;s create something amazing together. Whether you need a custom web application, a dynamic website, or technical consultation, I&#39;m here to help bring your vision to life.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link href="/projects" className="bg-white hover:bg-gray-50 text-sky-600 border border-sky-600 px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2">

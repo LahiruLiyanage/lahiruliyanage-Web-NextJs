@@ -415,7 +415,7 @@ export default function Projects() {
                                 <div className="max-w-3xl mx-auto text-center">
                                     <h3 className="text-2xl font-bold text-gray-800 mb-4">From Blueprints to Code Blocks</h3>
                                     <p className="text-gray-700 mb-6">
-                                        My unique background lets me approach digital problems with an architect's perspective,
+                                        My unique background lets me approach digital problems with an architect&#39;s perspective,
                                         combining creative vision with technical precision across both physical and digital realms.
                                     </p>
                                     <Link
@@ -442,7 +442,7 @@ export default function Projects() {
                 <div className="bg-white rounded-xl shadow-md p-8 md:p-10 text-center">
                     <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Have a project in mind?</h3>
                     <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-                        Whether you need a robust web application or architectural expertise, I'm ready to bring your vision to life.
+                        Whether you need a robust web application or architectural expertise, I&#39;m ready to bring your vision to life.
                     </p>
                     <Link
                         href="/contact"
