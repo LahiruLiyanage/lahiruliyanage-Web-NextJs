@@ -1,12 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Code, CodeXml, Building, Briefcase, GraduationCap, FileCode, Terminal } from 'lucide-react';
+import { Code, CodeXml, Building, Briefcase, GraduationCap, FileCode, Terminal, Award } from 'lucide-react';
 
 export default function About() {
+    const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
     const experiences = [
         {
@@ -31,17 +32,21 @@ export default function About() {
         }
     ];
 
-    const education = [
+    // Separated professional certificates from education
+    const professionalCertificates = [
         {
-            degree: 'CMJD Professional Certificate',
+            name: 'CMJD Professional Certificate',
             institution: 'IJSE - Institute of Software Engineering',
-            duration: '2024'
+            year: '2024 - 2025'
         },
         {
-            degree: 'Certificate in Jira Training',
+            name: 'Certificate in Jira Training',
             institution: 'ICITB - Imperial College Of Information Technology & Business',
-            duration: '2024'
-        },
+            year: '2024'
+        }
+    ];
+
+    const education = [
         {
             degree: 'MSc in Project Management',
             institution: 'Solent University, Southampton, UK',
@@ -72,6 +77,12 @@ export default function About() {
             opacity: 1,
             transition: { duration: 0.5 }
         }
+    };
+
+    // Handler for the details toggle that prevents layout shifts
+    const handleDetailsToggle = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        setIsDetailsOpen(!isDetailsOpen);
     };
 
     return (
@@ -171,17 +182,30 @@ export default function About() {
                                         &#34;Bringing an architect&#39;s perspective to software development — creating digital structures with both form and function.&#34;
                                     </div>
 
-                                    {/* Why I Switched */}
-                                    <details className="mt-4 text-sm">
-                                        <summary className="font-medium text-sky-700 cursor-pointer hover:text-sky-800">Why I Made The Switch</summary>
-                                        <p className="mt-2 text-gray-600 pl-2">
-                                            Discovered my passion for coding while working on architectural visualization projects.
-                                            The immediate feedback loop and endless possibilities of software development captured my imagination.
-                                        </p>
-                                    </details>
+                                    {/* Why I Switched - Improved with state management instead of details tag */}
+                                    <div className="mt-4 text-sm">
+                                        <button
+                                            onClick={handleDetailsToggle}
+                                            className="w-full text-left font-medium text-sky-700 cursor-pointer hover:text-sky-800 flex items-center"
+                                        >
+                                            <span>{isDetailsOpen ? '−' : '+'}</span>
+                                            <span className="ml-1">Why I Made The Switch</span>
+                                        </button>
+
+                                        {/* Fixed height container with transition for smooth expansion */}
+                                        <div
+                                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                                                isDetailsOpen ? 'max-h-40 mt-2' : 'max-h-0'
+                                            }`}
+                                        >
+                                            <p className="text-gray-600 pl-2">
+                                                Discovered my passion for coding while working on architectural visualization projects.
+                                                The immediate feedback loop and endless possibilities of software development captured my imagination.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </motion.div>
@@ -314,9 +338,33 @@ export default function About() {
                             </motion.div>
                         ))}
                     </div>
+                </motion.div>
 
-                    {/* Education Section (nested under Experience) */}
-                    <div className="mt-12">
+                {/* Professional Certificates and Education in responsive grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {/* Professional Certificates Section */}
+                    <motion.div variants={itemVariants}>
+                        <div className="flex items-center gap-2 mb-6">
+                            <Award className="text-sky-600" size={24} />
+                            <h2 className="text-2xl font-semibold text-gray-800">Professional Certificates</h2>
+                        </div>
+                        <div className="space-y-6">
+                            {professionalCertificates.map((cert, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white shadow-md rounded-lg p-6 border-l-4 border-yellow-400 h-full hover:shadow-lg transition-shadow duration-300"
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <h3 className="text-xl font-bold text-gray-800">{cert.name}</h3>
+                                    <p className="text-sky-600 mb-1">{cert.institution}</p>
+                                    <p className="text-gray-600">{cert.year}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Education Section */}
+                    <motion.div variants={itemVariants}>
                         <div className="flex items-center gap-2 mb-6">
                             <GraduationCap className="text-sky-600" size={24} />
                             <h2 className="text-2xl font-semibold text-gray-800">Education</h2>
@@ -325,7 +373,7 @@ export default function About() {
                             {education.map((edu, index) => (
                                 <motion.div
                                     key={index}
-                                    className="bg-white shadow-md rounded-lg p-6 border-l-4 border-yellow-400 hover:shadow-lg transition-shadow duration-300"
+                                    className="bg-white shadow-md rounded-lg p-6 border-l-4 border-sky-500 h-full hover:shadow-lg transition-shadow duration-300"
                                     whileHover={{ y: -5 }}
                                 >
                                     <h3 className="text-xl font-bold text-gray-800">{edu.degree}</h3>
@@ -334,8 +382,8 @@ export default function About() {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
 
                 {/* Architect to Developer Quote */}
                 <motion.div
@@ -347,15 +395,14 @@ export default function About() {
                     </blockquote>
                 </motion.div>
 
-                {/* Projects Link */}
+                {/* Projects Link - MODIFIED: Added more space below on mobile */}
                 <motion.section variants={itemVariants}>
-                    <div className="mt-8 text-center">
+                    <div className="mt-6 mb-4 sm:mb-2 text-center">
                         <Link href="/projects" className="text-sky-600 hover:text-sky-800 font-medium flex items-center gap-2 justify-center">
                             View All Projects <span>→</span>
                         </Link>
                     </div>
                 </motion.section>
-
             </motion.div>
         </div>
     );
