@@ -46,12 +46,25 @@ const Navbar: React.FC = () => {
         };
     }, [isOpen]);
 
+    // Close menu when pathname changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
     // Removed 'Contact' from navigation items since we have a dedicated 'Get in Touch' button
     const navItems: NavigationItem[] = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About Me' },
         { href: '/projects', label: 'Projects' }
     ];
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
 
     return (
         <nav className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -115,7 +128,7 @@ const Navbar: React.FC = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={toggleMenu}
                         className="p-2 rounded-md hover:bg-gray-100 focus:outline-none transition-colors"
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                     >
@@ -134,6 +147,17 @@ const Navbar: React.FC = () => {
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
                     >
+                        {/* Close button inside mobile menu */}
+                        <div className="absolute top-4 right-4">
+                            <button
+                                onClick={closeMenu}
+                                className="p-2 rounded-md hover:bg-gray-100 focus:outline-none transition-colors"
+                                aria-label="Close menu"
+                            >
+                                <X size={24} />
+                            </button>
+                        </div>
+
                         <div className="px-4">
                             {navItems.map((item, index) => {
                                 const isActive = pathname === item.href;
@@ -151,7 +175,7 @@ const Navbar: React.FC = () => {
                                                     ? 'bg-sky-50 text-sky-600 font-medium border-l-4 border-sky-600'
                                                     : 'text-gray-700 hover:bg-gray-50 hover:border-l-4 hover:border-sky-300'
                                             }`}
-                                            onClick={() => setIsOpen(false)}
+                                            onClick={closeMenu}
                                         >
                                             <span className="text-lg">{item.label}</span>
                                         </Link>
@@ -168,7 +192,7 @@ const Navbar: React.FC = () => {
                                 <Link
                                     href="/contact"
                                     className="flex items-center justify-center w-full bg-sky-600 text-white py-3 rounded-lg my-4"
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={closeMenu}
                                 >
                                     <span className="text-lg">Get in Touch</span>
                                 </Link>

@@ -78,7 +78,7 @@ export default function Home() {
                 {/* Hero Section */}
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:gap-16 items-center justify-center mb-16"
+                    className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:gap-16 xl:gap-24 items-center justify-center mb-16 mt-4 md:mt-6 lg:mt-8"
                 >
                     {/* Text Content */}
                     <div className="flex-1 text-center md:text-left">
@@ -155,7 +155,7 @@ export default function Home() {
                     {/* Profile Image with Career Transition Card */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex justify-center flex-1 relative"
+                        className="flex justify-center flex-1 relative pt-6 md:pt-0"
                     >
                         <div className="relative">
                             <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-gray-100">
@@ -169,8 +169,8 @@ export default function Home() {
                                 />
                             </div>
 
-                            {/* Floating mini career transition card */}
-                            <div className="absolute -bottom-10 -right-5 bg-white p-4 rounded-lg shadow-lg max-w-xs transform rotate-3 border-t-4 border-sky-500">
+                            {/* Floating mini career transition card - Adjusted positioning for different screen sizes */}
+                            <div className="absolute -bottom-10 -right-5 md:-bottom-8 md:-right-8 lg:-bottom-10 lg:-right-10 bg-white p-3 md:p-4 rounded-lg shadow-lg max-w-xs transform rotate-3 border-t-4 border-sky-500">
                                 <div className="flex items-center gap-2 text-sm">
                                     <Code className="text-sky-600" size={16} />
                                     <div className="font-medium text-gray-800">From Blueprint to Code</div>
@@ -182,7 +182,7 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <div className="absolute -bottom-3 -left-3 bg-white p-3 rounded-full shadow-lg">
+                            <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-white p-3 rounded-full shadow-lg">
                                 <PenTool className="w-5 h-5 md:w-6 md:h-6 text-sky-600" />
                             </div>
                         </div>
@@ -192,16 +192,16 @@ export default function Home() {
                 {/* Quote Section */}
                 <motion.div
                     variants={itemVariants}
-                    className="my-16 py-8 px-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-lg text-center shadow-sm"
+                    className="my-12 md:my-16 py-8 px-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-lg text-center shadow-sm"
                 >
                     <blockquote className="text-xl md:text-2xl font-medium text-gray-700 italic">
                         &#34;Building bridges between architecture and code, one commit at a time.&#34;
                     </blockquote>
                 </motion.div>
 
-                {/* Professional Skills Section */}
-                <motion.div variants={itemVariants} className="mb-16">
-                    <div className="text-center mb-10 md:mb-16">
+                {/* Professional Skills Section - Improved spacing for better alignment */}
+                <motion.div variants={itemVariants} className="mb-12 md:mb-16 lg:mb-20">
+                    <div className="text-center mb-8 md:mb-12 lg:mb-16">
                         <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
                             Professional Expertise
                         </h3>
@@ -211,7 +211,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8 max-w-5xl xl:max-w-7xl 2xl:max-w-screen-2xl mx-auto">
                         {professionalSkills.map((skill, index) => (
                             <motion.div
                                 key={index}
@@ -219,11 +219,11 @@ export default function Home() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.2 }}
                                 whileHover={{ y: -5 }}
-                                className={`bg-white p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 ${
+                                className={`bg-white p-5 md:p-6 lg:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 ${
                                     !skill.mobileVisible ? 'hidden sm:block' : ''
                                 }`}
                             >
-                                <div className="flex justify-center mb-4 md:mb-5 bg-sky-50 w-14 h-14 rounded-lg mx-auto flex items-center justify-center">
+                                <div className="flex justify-center mb-4 md:mb-5 bg-sky-50 w-12 h-12 md:w-14 md:h-14 rounded-lg mx-auto flex items-center justify-center">
                                     {skill.icon}
                                 </div>
                                 <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-800 text-center">
@@ -237,7 +237,6 @@ export default function Home() {
                     </div>
                 </motion.div>
             </motion.div>
-
         </div>
     );
 }
