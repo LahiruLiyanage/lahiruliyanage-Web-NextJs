@@ -23,6 +23,13 @@ const Footer = () => {
     const navigationLinks = [
         { name: 'Home', href: '/', icon: <Home size={20} /> },
         { name: 'About', href: '/about', icon: <User size={20} /> },
+        { name: 'Projects', href: '/projects', icon: <FolderOpen size={20} /> }
+    ];
+
+    // Mobile navigation links (includes Contact)
+    const mobileNavigationLinks = [
+        { name: 'Home', href: '/', icon: <Home size={20} /> },
+        { name: 'About', href: '/about', icon: <User size={20} /> },
         { name: 'Projects', href: '/projects', icon: <FolderOpen size={20} /> },
         { name: 'Contact', href: '/contact', icon: <Mail size={20} /> }
     ];
@@ -113,7 +120,7 @@ const Footer = () => {
                 className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 md:hidden"
             >
                 <div className="flex justify-around items-center h-16">
-                    {navigationLinks.map((link) => (
+                    {mobileNavigationLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
