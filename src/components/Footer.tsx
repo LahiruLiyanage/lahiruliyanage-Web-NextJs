@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Home, User, FolderOpen, Mail, Github, Linkedin, Instagram, ChevronRight } from 'lucide-react';
+import {Home, User, FolderOpen, Mail, Github, Linkedin, Instagram, ChevronRight, MessageCircle} from 'lucide-react';
 
 const Footer = () => {
     // Animation variants for navbar

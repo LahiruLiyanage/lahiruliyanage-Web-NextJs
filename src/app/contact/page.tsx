@@ -1,11 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import {
+    Mail,
+    Phone,
+    MapPin,
+    Github,
+    Linkedin,
+    Twitter,
+    Send,
+    CheckCircle,
+    MessageSquare,
+    MessageCircle
+} from 'lucide-react';
 
 export default function Contact() {
+    const formRef = useRef<HTMLFormElement>(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -15,6 +28,13 @@ export default function Contact() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submissionError, setSubmissionError] = useState<string | null>(null);
+
+    // EmailJS configuration
+    const emailjsServiceId = 'service_a10b09t';
+    const emailjsTemplateId = 'template_5l8kzj8';
+    const emailjsPublicKey = 'R8WkDz1fpff6_hFzH';
+    // const emailjsPrivateKey = 'MIs3fQ9MTje8wZ2sPYT-X';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -24,27 +44,46 @@ export default function Contact() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmissionError(null);
 
-        // Simulate form submission
-        setTimeout(() => {
-            console.log(formData);
+        try {
+            // Send email using EmailJS with directly included API key
+            const result = await emailjs.sendForm(
+                emailjsServiceId,
+                emailjsTemplateId,
+                formRef.current!,
+                emailjsPublicKey // Only the public key is used for sendForm
+            );
+
+            if (result.text === 'OK') {
+                setIsSubmitted(true);
+                // Reset form after showing success message
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    setFormData({
+                        name: '',
+                        email: '',
+                        subject: '',
+                        message: ''
+                    });
+                }, 5000);
+            } else {
+                setSubmissionError('Failed to send message. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmissionError('An unexpected error occurred. Please try again.');
+        } finally {
             setIsSubmitting(false);
-            setIsSubmitted(true);
+        }
+    };
 
-            // Reset form after showing success message
-            setTimeout(() => {
-                setIsSubmitted(false);
-                setFormData({
-                    name: '',
-                    email: '',
-                    subject: '',
-                    message: ''
-                });
-            }, 5000);
-        }, 1500);
+    // Scroll to contact form function
+    const scrollToContactForm = () => {
+        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     // Animation variants
@@ -123,6 +162,19 @@ export default function Contact() {
                                     </div>
                                 </div>
 
+                                {/* WhatsApp Contact */}
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-green-100 p-3 rounded-full">
+                                        <MessageCircle className="text-green-600" size={20} />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-medium text-gray-800">WhatsApp</h3>
+                                        <a href="https://wa.me/94719607296" target="_blank" rel="noreferrer" className="text-green-600 hover:text-green-700 transition-colors">
+                                            +94 71 960 7296
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <div className="flex items-start gap-4">
                                     <div className="bg-sky-100 p-3 rounded-full">
                                         <MapPin className="text-sky-600" size={20} />
@@ -144,9 +196,9 @@ export default function Contact() {
                                            className="bg-blue-100 hover:bg-blue-200 p-3 rounded-full transition-colors">
                                             <Linkedin className="text-blue-700" size={20} />
                                         </a>
-                                        <a href="https://twitter.com/lahiruliyanage" target="_blank" rel="noreferrer"
-                                           className="bg-sky-100 hover:bg-sky-200 p-3 rounded-full transition-colors">
-                                            <Twitter className="text-sky-500" size={20} />
+                                        <a href="https://wa.me/94719607296" target="_blank" rel="noreferrer"
+                                           className="bg-green-100 hover:bg-green-200 p-3 rounded-full transition-colors">
+                                            <MessageCircle className="text-green-600" size={20} />
                                         </a>
                                     </div>
                                 </div>
@@ -173,7 +225,7 @@ export default function Contact() {
 
                     {/* Contact Form */}
                     <motion.div variants={itemVariants} className="md:col-span-2 order-1 md:order-2">
-                        <div className="bg-white shadow-md rounded-lg p-8">
+                        <div id="contact-form" className="bg-white shadow-md rounded-lg p-8">
                             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Send Me a Message</h2>
 
                             {isSubmitted ? (
@@ -189,7 +241,13 @@ export default function Contact() {
                                     </div>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit}>
+                                <form ref={formRef} onSubmit={handleSubmit}>
+                                    {submissionError && (
+                                        <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
+                                            {submissionError}
+                                        </div>
+                                    )}
+
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label htmlFor="name" className="block text-gray-700 mb-2 font-medium">Name</label>
@@ -248,6 +306,12 @@ export default function Contact() {
                                         ></textarea>
                                     </div>
 
+                                    {/* Hidden inputs for EmailJS template */}
+                                    <input type="hidden" name="to_email" value="lhlahiru95@gmail.com" />
+                                    <input type="hidden" name="from_name" value={formData.name} />
+                                    <input type="hidden" name="from_email" value={formData.email} />
+                                    <input type="hidden" name="subject" value={formData.subject} />
+
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
@@ -276,36 +340,6 @@ export default function Contact() {
                     </motion.div>
                 </div>
 
-                {/* FAQ Section */}
-                {/*<motion.div variants={itemVariants} className="mt-16">*/}
-                {/*    <h2 className="text-2xl font-semibold mb-8 text-center text-gray-800">Frequently Asked Questions</h2>*/}
-                {/*    <div className="grid md:grid-cols-2 gap-6">*/}
-                {/*        {[*/}
-                {/*            {*/}
-                {/*                question: "What types of projects do you work on?",*/}
-                {/*                answer: "I specialize in full-stack web development using modern technologies like React, Next.js, TypeScript, and Java Spring. I'm particularly interested in projects that require both technical expertise and creative problem-solving."*/}
-                {/*            },*/}
-                {/*            {*/}
-                {/*                question: "How do you handle project pricing?",*/}
-                {/*                answer: "Each project is unique, so I customize my pricing based on the scope, timeline, and complexity. I offer both hourly rates and fixed project prices depending on your needs. Contact me with details for a personalized quote."*/}
-                {/*            },*/}
-                {/*            {*/}
-                {/*                question: "What is your typical development process?",*/}
-                {/*                answer: "My process typically involves discovery, planning, design, development, testing, and deployment phases. I emphasize clear communication, regular updates, and iterative development to ensure your project meets all requirements."*/}
-                {/*            },*/}
-                {/*            {*/}
-                {/*                question: "Do you offer maintenance after project completion?",*/}
-                {/*                answer: "Yes, I provide ongoing maintenance and support services to ensure your application continues to run smoothly. I can also implement new features and improvements as your needs evolve."*/}
-                {/*            }*/}
-                {/*        ].map((faq, index) => (*/}
-                {/*            <div key={index} className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-all duration-300">*/}
-                {/*                <h3 className="font-semibold text-gray-800 mb-2">{faq.question}</h3>*/}
-                {/*                <p className="text-gray-600">{faq.answer}</p>*/}
-                {/*            </div>*/}
-                {/*        ))}*/}
-                {/*    </div>*/}
-                {/*</motion.div>*/}
-
                 {/* Call to Action */}
                 <motion.div
                     variants={itemVariants}
@@ -319,10 +353,13 @@ export default function Contact() {
                         <Link href="/projects" className="bg-white hover:bg-gray-50 text-sky-600 border border-sky-600 px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2">
                             View My Projects
                         </Link>
-                        <a href="mailto:lhlahiru95@gmail.com" className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2">
-                            <Mail size={18} />
-                            Email Me Directly
-                        </a>
+                        <button
+                            onClick={scrollToContactForm}
+                            className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+                        >
+                            <MessageSquare size={18} />
+                            Message Me Directly
+                        </button>
                     </div>
                 </motion.div>
             </motion.div>
