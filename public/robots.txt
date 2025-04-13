@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block access to specific folders
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.lahiruliyanage.com/sitemap.xml
