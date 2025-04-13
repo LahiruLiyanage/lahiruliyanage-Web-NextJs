@@ -104,7 +104,7 @@ export default function Home() {
                     {/* Hero Section */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:gap-16 xl:gap-24 items-center justify-center mb-16 mt-4 md:mt-6 lg:mt-8"
+                        className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 lg:gap-16 xl:gap-24 items-center justify-center mb-16 mt-4 md:mt-6 lg:mt-6"
                     >
                         {/* Text Content */}
                         <div className="flex-1 text-center md:text-left">
@@ -132,6 +132,15 @@ export default function Home() {
                                     dream as a Full-Stack Software Developer, bringing a blueprint of innovation to
                                     every project.
                                 </p>
+
+                                {/*<div className="flex flex-wrap gap-2 mt-2">*/}
+                                {/*    {["FullStack Developer", "Spring", "Java BackEnd", "ExpressJs"].map(skill => (*/}
+                                {/*        <span key={skill}*/}
+                                {/*              className="px-2 py-1 bg-sky-100 text-sky-800 rounded-full text-l">*/}
+                                {/*                    {skill}*/}
+                                {/*                </span>*/}
+                                {/*    ))}*/}
+                                {/*</div>*/}
 
                                 {/* Action Links */}
                                 <div
@@ -193,7 +202,7 @@ export default function Home() {
                                     className="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-gray-100">
                                     <Image
                                         src="/images/lahiruliyanage.png"
-                                        alt="Lahiru Liyanage"
+                                        alt="Lahiru Liyanage - Software Engineer from Sri Lanka"
                                         width={400}
                                         height={500}
                                         className="object-cover w-64 h-80 sm:w-72 sm:h-90 md:w-80 md:h-96 lg:w-96 lg:h-120"
@@ -261,7 +270,7 @@ export default function Home() {
                                     }`}
                                 >
                                     <div
-                                        className="flex justify-center mb-4 md:mb-5 bg-sky-50 w-12 h-12 md:w-14 md:h-14 rounded-lg mx-auto flex items-center justify-center">
+                                        className="flex justify-center mb-4 md:mb-5 bg-sky-50 w-12 h-12 md:w-14 md:h-14 rounded-lg mx-auto items-center">
                                         {skill.icon}
                                     </div>
                                     <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-800 text-center">

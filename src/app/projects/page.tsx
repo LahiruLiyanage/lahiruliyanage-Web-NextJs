@@ -174,14 +174,14 @@ export default function Projects() {
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.lahiruliyanage.com/" />
+                <meta property="og:url" content="https://www.lahiruliyanage.com/projects" />
                 <meta property="og:title" content="Lahiru Liyanage | Full-Stack Software Developer" />
                 <meta property="og:description" content="Explore the portfolio of Lahiru Liyanage — full-stack developer" />
                 <meta property="og:image" content="/images/og-image.jpg" />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:url" content="https://www.lahiruliyanage.com/" />
+                <meta name="twitter:url" content="https://www.lahiruliyanage.com/projects" />
                 <meta name="twitter:title" content="Lahiru Liyanage | Full-Stack Software Developer" />
                 <meta name="twitter:description" content="Explore the portfolio of Lahiru Liyanage — full-stack developer" />
                 <meta name="twitter:image" content="/images/og-image.jpg" />

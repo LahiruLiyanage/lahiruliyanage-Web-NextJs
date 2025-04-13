@@ -96,9 +96,35 @@ export default function Contact() {
         }
     };
 
+    const contactSchema = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "description": "Contact information for Lahiru Liyanage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Lahiru Liyanage",
+            "email": "lahiruUJ59@gmail.com",
+            "telephone": "+94719667296",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Colombo",
+                "addressCountry": "Sri Lanka"
+            },
+            "sameAs": [
+                "https://github.com/LahiruLiyanage",
+                "https://linkedin.com/in/lahiruliyanage"
+            ]
+        }
+    };
+
     return (
         <>
             <Head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+                />
+
                 {/* Primary Meta Tags */}
                 <title>Lahiru Liyanage | Full-Stack Software Developer</title>
                 <meta name="title" content="Lahiru Liyanage | Full-Stack Software Developer" />
@@ -109,14 +135,14 @@ export default function Contact() {
 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.lahiruliyanage.com/" />
+                <meta property="og:url" content="https://www.lahiruliyanage.com/contact" />
                 <meta property="og:title" content="Lahiru Liyanage | Full-Stack Software Developer" />
                 <meta property="og:description" content="Explore the portfolio of Lahiru Liyanage — full-stack developer" />
                 <meta property="og:image" content="/images/og-image.jpg" />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:url" content="https://www.lahiruliyanage.com/" />
+                <meta name="twitter:url" content="https://www.lahiruliyanage.com/contact" />
                 <meta name="twitter:title" content="Lahiru Liyanage | Full-Stack Software Developer" />
                 <meta name="twitter:description" content="Explore the portfolio of Lahiru Liyanage — full-stack developer" />
                 <meta name="twitter:image" content="/images/og-image.jpg" />
