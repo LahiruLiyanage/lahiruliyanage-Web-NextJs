@@ -39,3 +39,35 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# testing
+/coverage
+*.lcov
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# IDE and editor files
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Package manager
+.pnpm-debug.log*
+.yarn/install-state.gz
+
+# Bundle analyzer
+.next/analyze/
+
+# Storybook
+storybook-static/
