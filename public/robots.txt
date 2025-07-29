@@ -1,8 +1,13 @@
+# *
 User-agent: *
 Allow: /
 
-# Block access to specific folders
+# *
+User-agent: *
 Disallow: /api/
 
-# Sitemap location
+# Host
+Host: https://www.lahiruliyanage.com
+
+# Sitemaps
 Sitemap: https://www.lahiruliyanage.com/sitemap.xml
