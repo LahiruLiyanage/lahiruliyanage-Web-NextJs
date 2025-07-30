@@ -80,34 +80,35 @@ export default function Home() {
       icon: <Layers className="w-7 h-7 text-sky-600" />,
       title: "Full Stack Solutions",
       description:
-        "End-to-end web development with modern architecture patterns",
-      technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+        "End-to-end web development with modern architecture patterns.",
+      technologies: ["FullStack Development", "DataBase Management"],
       projects: "15+ Projects",
       mobileVisible: true,
     },
     {
       icon: <Building2 className="w-7 h-7 text-sky-600" />,
-      title: "Architectural Design",
+      title: "Architectural (Construction) Skills",
       description:
-        "Strategic system design and scalable infrastructure planning",
-      technologies: ["System Design", "Microservices", "Cloud Architecture"],
-      projects: "10+ Designs",
+        "Skilled in building design, construction drawings, and project coordination.",
+      technologies: ["Architectural Designing", "Project Management"],
+      projects: "10+ Construction Projects",
       mobileVisible: true,
     },
     {
       icon: <LayoutTemplate className="w-7 h-7 text-sky-600" />,
       title: "Frontend Excellence",
       description:
-        "Responsive, accessible interfaces with modern design systems",
-      technologies: ["React", "Tailwind CSS", "Framer Motion"],
+        "Responsive, accessible interfaces with modern design systems.",
+      technologies: ["React", "NextJS", "Angular", "React Native"],
       projects: "20+ Interfaces",
       mobileVisible: false,
     },
     {
       icon: <Server className="w-7 h-7 text-sky-600" />,
       title: "Backend Engineering",
-      description: "Robust APIs and database optimization for enterprise scale",
-      technologies: ["Java Spring", "REST APIs", "Database Design"],
+      description:
+        "Robust APIs and database optimization for enterprise scale.",
+      technologies: ["NestJS", "Java Spring", "REST APIs", "Database Design"],
       projects: "12+ APIs",
       mobileVisible: false,
     },
@@ -117,7 +118,7 @@ export default function Home() {
   const quickStats = [
     {
       label: "Years Experience",
-      value: "3+",
+      value: "2+",
       icon: <Calendar className="w-5 h-5" />,
     },
     {
@@ -212,11 +213,17 @@ export default function Home() {
                     )}
                   </span>
                   <motion.div
-                    animate={{ scaleX: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 2, ease: "easeInOut", delay: 0.3 }}
                     className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-sky-600 to-blue-600 rounded-full"
-                    style={{ width: isTyping ? "0%" : "100%" }}
-                  />
+                  >
+                    <motion.div
+                      animate={{ scaleX: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 2.3 }}
+                      className="w-full h-full bg-gradient-to-r from-sky-600 to-blue-600 rounded-full"
+                    />
+                  </motion.div>
                 </h2>
               </motion.div>
 
