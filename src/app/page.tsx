@@ -244,17 +244,19 @@ export default function Home() {
                 variants={itemVariants}
                 className="text-gray-600 leading-relaxed text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-8"
               >
-                Experienced{" "}
+                Currently working as a{" "}
                 <span className="font-semibold text-gray-800">
                   Software Engineer
                 </span>{" "}
-                and{" "}
+                after transitioning from my background as a{" "}
                 <span className="font-semibold text-gray-800">
                   Project Architect
                 </span>{" "}
-                specializing in scalable web solutions. I transform complex
-                business requirements into elegant, efficient applications using
-                modern technologies.
+                in construction projects. I bring my architectural design
+                thinking and project management expertise to software
+                development, creating scalable web solutions that transform
+                complex business requirements into elegant, efficient
+                applications.
               </motion.p>
 
               {/* Quick Stats */}
